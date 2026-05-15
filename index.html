@@ -3,112 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AccessMove • Accessible Transport</title>
-    <meta name="description" content="Inclusive mobility for everyone. Real-time accessible transport information.">
+    <title>GoDhaka - Bus Tickets in Dhaka</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-
     <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">AccessMove</a>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Go<span>Dhaka</span></h1>
+            </div>
             
-            <ul class="nav-links">
-                <li><a href="#">Routes</a></li>
-                <li><a href="#">Live Updates</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Report Issue</a></li>
-            </ul>
-            
-            <button class="accessibility-btn">
-                ♿ Accessibility
-            </button>
+            <div class="nav-links">
+                <a href="#" class="active"><i class="fas fa-bus"></i> Bus</a>
+                <a href="#"><i class="fas fa-train"></i> Train</a>
+                <a href="#"><i class="fas fa-car"></i> CNG</a>
+                <a href="#"><i class="fas fa-map"></i> Routes</a>
+            </div>
+
+            <div class="header-right">
+                <button class="contact-btn">
+                    <i class="fas fa-phone"></i> 01637-XXXXXX
+                </button>
+                <button class="login-btn">Login</button>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Accessible Transport,<br>for Everyone</h1>
-            <p>Find wheelchair-friendly routes, real-time lift/elevator status, and community-verified accessible options.</p>
+            <div class="search-container">
+                <div class="trip-type">
+                    <label class="active">
+                        <input type="radio" name="trip" checked> One Way
+                    </label>
+                    <label>
+                        <input type="radio" name="trip"> Round Trip
+                    </label>
+                </div>
+
+                <div class="search-form">
+                    <div class="input-group">
+                        <label>From</label>
+                        <select id="from-select">
+                            <option value="">Select Departure</option>
+                            <option value="Gulshan">Gulshan</option>
+                            <option value="Mirpur">Mirpur</option>
+                            <option value="Uttara">Uttara</option>
+                            <option value="Dhanmondi">Dhanmondi</option>
+                            <option value="Motijheel">Motijheel</option>
+                            <option value="Mohammadpur">Mohammadpur</option>
+                        </select>
+                    </div>
+
+                    <div class="swap-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <label>To</label>
+                        <select id="to-select">
+                            <option value="">Select Destination</option>
+                            <option value="Gulshan">Gulshan</option>
+                            <option value="Mirpur">Mirpur</option>
+                            <option value="Uttara">Uttara</option>
+                            <option value="Dhanmondi">Dhanmondi</option>
+                            <option value="Motijheel">Motijheel</option>
+                            <option value="Mohammadpur">Mohammadpur</option>
+                            <option value="Savar">Savar</option>
+                            <option value="Gazipur">Gazipur</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Journey Date</label>
+                        <input type="date" id="journey-date" value="2026-05-20">
+                    </div>
+
+                    <button class="search-btn" onclick="searchBuses()">
+                        <i class="fas fa-search"></i> SEARCH BUSES
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="results">
+        <div class="container">
+            <h2 id="results-title">Popular Routes in Dhaka</h2>
             
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Where are you going?" aria-label="Search destination">
-                <button class="search-btn">Search</button>
+            <div class="bus-list" id="bus-list">
+                <!-- Populated by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="section">
-        <h2 class="section-title">How AccessMove Helps You</h2>
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">🛤️</div>
-                <h3>Accessible Routes</h3>
-                <p>Filter by wheelchair access, low-floor buses, elevators, and more.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📍</div>
-                <h3>Real-Time Status</h3>
-                <p>Live updates on elevators, ramps, and vehicle accessibility.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Community Powered</h3>
-                <p>Reports and feedback from fellow passengers with disabilities.</p>
-            </div>
+    <!-- Notice -->
+    <section class="notice">
+        <div class="notice-card">
+            <h3><i class="fas fa-bullhorn"></i> Important Notice</h3>
+            <p><strong>Eid Special Service:</strong> Extra buses running from 14 May 2026 to 13 June 2026.</p>
+            <p>Tickets are non-refundable during peak periods.</p>
         </div>
     </section>
 
-    <!-- Popular Routes -->
-    <section class="section routes">
-        <h2 class="section-title">Popular Accessible Routes</h2>
-        <div class="route-grid">
-            <div class="route-card">
-                <div class="route-img" style="background-image: url('https://picsum.photos/id/1015/600/400')"></div>
-                <div class="route-info">
-                    <h4>Central Station → Airport</h4>
-                    <p>Line 5 • 45 min</p>
-                    <div class="accessibility-tags">
-                        <span class="tag">♿ Wheelchair</span>
-                        <span class="tag">🛗 Elevator</span>
-                        <span class="tag">🔊 Audio</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="route-card">
-                <div class="route-img" style="background-image: url('https://picsum.photos/id/237/600/400')"></div>
-                <div class="route-info">
-                    <h4>Downtown → University</h4>
-                    <p>Bus 12 & 18 • Low Floor</p>
-                    <div class="accessibility-tags">
-                        <span class="tag">♿ Wheelchair</span>
-                        <span class="tag">🚌 Low Floor</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="route-card">
-                <div class="route-img" style="background-image: url('https://picsum.photos/id/870/600/400')"></div>
-                <div class="route-info">
-                    <h4>Metro Line 3 → Hospital</h4>
-                    <p>15 min • Fully Accessible</p>
-                    <div class="accessibility-tags">
-                        <span class="tag">♿ Full Access</span>
-                        <span class="tag">🛗 Working</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 AccessMove • Community-Driven Accessible Transport</p>
-    </footer>
-
+    <script src="./js/app.js"></script>
 </body>
 </html>
