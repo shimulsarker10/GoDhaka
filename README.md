@@ -15,10 +15,7 @@ A beginner-friendly smart bus route guide website for Dhaka city.
 
 ## Team Members
 - Shimul Sarker
-- Sujon Mia
-- Jahidul Islam Joy
-- Yasin Almahmod
-- Azmery Talukder Trina
+- Tanvir Rahman Tonoy
   
 ## Future Plans
 - Live tracking
