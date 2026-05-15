@@ -1,4 +1,4 @@
-# JatriPath 🚍
+# GoDhaka
 
 A beginner-friendly smart bus route guide website for Dhaka city.
 
